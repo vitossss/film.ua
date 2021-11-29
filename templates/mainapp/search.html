@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Film.ua{% endblock title %}
+
+{% block content %}
+
+    {% include 'mainapp/include/header.html' %}
+    {% include 'mainapp/include/slider.html' %}
+
+            <div class="col py-3">
+                <div id="block_films" class="main_block_films">
+                    <div class="block_films_text">
+                        <h2>
+                            Список фільмів
+                            <sup class="movie_amount">{{ movie_list|length }}</sup>
+                        </h2>
+                    </div>
+                    <div class="block_films">
+                        {% for movie in movie_list %}
+                            <div class="sub_block_films">
+                                <img style="width: 230px;" src="{{ movie.poster.url }}" alt="poster">
+                                <div><a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a></div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% load static %}
+<header>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active"
+                 style="background-image: url('{% static 'images/Venom-Let-There-Be-Carnage-Featured-New.jpg' %}')">
+            </div>
+            <div class="carousel-item"
+                 style="background-image: url('{% static 'images/Djumandji.jpg' %}')">
+            </div>
+            <div class="carousel-item"
+                 style="background-image: url('{% static 'images/Bad_neighbor.jpg' %}')">
+            </div>
+            <div class="carousel-item"
+                 style="background-image: url('{% static 'images/Last_duel.jpg' %}')">
+            </div>
+            <div class="carousel-item"
+                 style="background-image: url('{% static 'images/Dzidzo_de_groshi.jpg' %}')">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</header>

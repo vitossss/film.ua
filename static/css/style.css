@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Open+Sans&display=swap');
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FF8E3C!important;
+}
+
+/*Header*/
+header .carousel-item {
+    height: 80vh;
+    margin-top: 55px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+header .carousel-control-prev, header .carousel-control-next {
+    background-color: transparent;
+    border: transparent;
+}
+
+body, html {
+    height: 100%;
+}
+
+/*List*/
+.main_block_films {
+    margin: 40px 0 40px 30px;
+}
+
+.block_films_text {
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.block_films {
+    font-family: 'Comfortaa', sans-serif;
+    display: grid;
+    grid-gap: 0 4%;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-rows: auto;
+}
+
+.block_films .sub_block_films {
+    width: 230px;
+    text-align: center;
+}
+
+.block_films .sub_block_films a {
+    color: #ff8e3c;
+}
+
+.block_films .sub_block_films div {
+    color: #ff8e3c;
+    margin: 5px 0 35px 0;
+}
+
+.movie_amount {
+    color: #c2c2c2;
+    font-size: 16px;
+}
+
+/*Detail*/
+.for_movies_shots_slider {
+    width: 900px;
+}
+
+.movies_shots_slider_sup {
+    width: 230px;
+}
+
+.movies_shots_slider {
+    margin: 15px auto;
+}
+
+.movies_shots_for {
+    max-height: 600px;
+    min-height: 600px;
+}
+
+.movies_shots {
+    max-width: 65px;
+    min-width: 60px;
+    /*max-height: 60px;*/
+    /*min-height: 60px;*/
+    padding: 2px;
+}
+
+.wrapper {
+    margin: 100px 30px 80px 50px;
+}
+
+.movie_content {
+    display: flex;
+    margin-bottom: 65px;
+}
+
+.poster {
+    width: 270px;
+    border-radius: 6px;
+}
+
+.content {
+    margin: 5px 40px;
+    display: flex;
+}
+
+.content div {
+    margin-right: 100px;
+}
+
+.actors, .directors, .genres, .year, .country,
+.premiere, .budget, .fees_in_world {
+    color: #a5a5a5;
+}
+
+.actors span, .directors span, .genres span, .year span,
+.country span, .premiere span, .budget span, .fees_in_world span {
+    display: block;
+    margin: 5px;
+    color: #000;
+}
+
+.wrapper_shots {
+    display: flex;
+}
+
+.main_movies_shots_slider {
+    margin: 0 70px 80px 50px;
+}
+
+.movie_description {
+    width: 650px;
+    margin-top: 30px;
+    line-height: 2rem;
+}
+
+.video_content {
+    margin: 0 0 60px 50px;
+}
+
+.form_comments {
+    margin: 40px 0 40px 50px;
+    width: 40%;
+}
+
+.main_comments {
+    margin-top: 30px;
+}
+
+.comments {
+    /*display: flex;*/
+    margin-top: 35px;
+    position: relative;
+}
+
+.comment_reply {
+    margin-left: 100px;
+}
+
+.comments:hover {
+    background-color: #f6f6f6;
+    border-radius: 0.5rem;
+}
+
+.comments:hover .reply_arrow {
+    display: block;
+}
+
+.reply_arrow {
+    display: none;
+    position: absolute;
+    top: 8px;
+    right: 0;
+}
+
+.review_img img {
+    width: 65px;
+    border-radius: 10px;
+    float: left;
+    margin-right: 20px;
+}
+
+.header_name {
+    padding: 5px;
+}
+
+.fa-reply {
+    color: #000;
+    width: 100px;
+}
+
+.reply_arrow a {
+    padding: 10px;
+}
+
+.reply_arrow a:hover {
+    background-color: #c2c2c2;
+    border-radius: 10px;
+}
+
+/*.movies_shots {*/
+/*    border: 1px solid #FF8E3C;*/
+/*}*/
+
+.slick-arrow::before {
+    color: #000;
+}
+
+.filter_content h3 {
+    padding: 10px;
+}
+
+.filter div {
+    margin: 7px;
+}
+
+.filter li {
+    list-style: none;
+    padding: 10px;
+}
+
+.filter li span {
+    padding: 3px;
+    color: #b0b3b7;
+}
+
+/*Footer*/
+footer .text-small {
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+footer a:hover, footer a:focus {
+    text-decoration: none;
+}
+
+footer .form-control {
+    background: #212529;
+    border-color: #545454;
+}
+
+footer .form-control:focus {
+    background: #212529;
+}
+
+footer {
+    background: #212529;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary.focus,
+.btn-primary:active, .btn-primary.active, .btn-primary:visited,
+.btn-primary:active:hover, .btn-primary.active:hover {
+    outline: #FF8E3C;
+    background-color: #FF8E3C;
+    border: #FF8E3C;
+}

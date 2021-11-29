@@ -1,0 +1,20 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'movie_list' %}">Film.ua</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item ms-4">
+                    <a class="nav-link" href="{% url 'movie_list' %}">Фільми</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Контакти</a>
+                </li>
+            </ul>
+            <form action="{% url 'search' %}" method="get" class="d-flex">
+                <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Пошук</button>
+            </form>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Film.ua{% endblock title %}
+
+{% block content %}
+
+    {% include 'mainapp/include/header.html' %}
+    {% include 'mainapp/include/slider.html' %}
+    <div class="container-fluid">
+        <div class="row">
+            <div style="background-color: #161c20;" class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+                <form action="{% url 'filter' %}" method="get">
+                    <div class="px-1 pt-2 min-vh-100 filter_content">
+                        <h3 style="color: #fff">Жанр</h3>
+                        <ul class="filter">
+                            <li>
+                                {% for genre in view.get_genres %}
+                                    <div>
+                                        <label>
+                                            <input type="checkbox" name="genre" class="checked" value="{{ genre.id }}">
+                                        </label>
+                                        <span>{{ genre.name }}</span><br>
+                                    </div>
+                                {% endfor %}
+                            </li>
+                        </ul>
+                        <hr style="background-color: #FF8E3C; height: 2px">
+                        <h3 style="color: #fff">Рік</h3>
+                        <ul class="filter">
+                            <li>
+                                {% for movie in view.get_years %}
+                                    <div><label>
+                                        <input type="checkbox" class="checked" name="year" value="{{ movie.year }}">
+                                    </label>
+                                        <span>{{ movie.year }}</span><br></div>
+                                {% endfor %}
+                            </li>
+                        </ul>
+                        <button class="btn btn-outline-light" type="submit">Знайти</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col py-3">
+                <div id="block_films" class="main_block_films">
+                    <div class="block_films_text">
+                        <h2>
+                            Список фільмів
+                            <sup class="movie_amount">{{ movie_list|length }}</sup>
+                        </h2>
+                    </div>
+                    <div class="block_films">
+                        {% for movie in movie_list %}
+                            <div class="sub_block_films">
+                                <img style="width: 230px;" src="{{ movie.poster.url }}" alt="poster">
+                                <div><a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a></div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

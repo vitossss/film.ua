@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ movie.title }}{% endblock title %}
+
+{% block content %}
+
+    {% include 'mainapp/include/header.html' %}
+    <div>
+        <div class="wrapper">
+            <div class="movie_content">
+                <div><img class="poster" src="{{ movie.poster.url }}" alt="Poster"></div>
+                <div class="content">
+                    <div>
+                        <div><p class="actors">У головних ролях:<span>{% for actors in movie.actors.all %}
+                            {{ actors }},{% endfor %}</span></p></div>
+                        <div><p class="directors">Режисер:<span>{% for directors in movie.directors.all %}
+                            {{ directors }}{% endfor %}</span></p></div>
+                        <div><p class="genres">Жанр:<span>{% for genres in movie.genres.all %}
+                            {{ genres }},{% endfor %}</span></p></div>
+                        <div><p class="year">Рік: <span>{{ movie.year }}</span></p></div>
+                        <div><p class="country">Країна: <span>{{ movie.country }}</span></p></div>
+                    </div>
+                    <div>
+                        <div><p class="premiere">Прем'єра: <span>{{ movie.world_premiere }}</span></p></div>
+                        <div><p class="budget">Бюджет: <span>{{ movie.budget }}$</span></p></div>
+                        <div><p class="fees_in_world">Збори у світі:<span>{{ movie.fees_in_world }}$</span></p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper_shots">
+            <div class="main_movies_shots_slider">
+                <div class="for_movies_shots_slider">
+                    {% for shots in movie.moviesshots_set.all %}
+                        <div><img class="movies_shots_for" src="{{ shots.image.url }}" alt="movie_shot"></div>
+                    {% endfor %}
+                </div>
+                <div class="movies_shots_slider_sup">
+                    <div class="movies_shots_slider">
+                        {% for shots in movie.moviesshots_set.all %}
+                            <div><img class="movies_shots" src="{{ shots.image.url }}" alt="movie_shots"></div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="movie_description">
+                <div><p>{{ movie.description|safe }}</p></div>
+            </div>
+        </div>
+
+        <div class="video_content">
+            {{ movie.video|safe }}
+        </div>
+        <hr style="background-color:#FF8E3C; height: 2px;">
+        <div class="form_comments">
+            <div>
+                <form action="{% url 'add_review' movie.id %}" id="formReview" method="post" class="row gy-2 gx-3 align-items-center">
+                    {% csrf_token %}
+                    <input type="hidden" name="parent" id="contactparent" value="">
+                    <div class="col-auto">
+                        <label class="visually-hidden" for="autoSizingInput">Name</label>
+                        <input type="text" class="form-control" id="autoSizingInput" name="name" placeholder="Name">
+                    </div>
+                    <div class="col-auto">
+                        <label class="visually-hidden" for="autoSizingInputGroup">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-text">@</div>
+                            <input type="text" class="form-control" name="email" id="autoSizingInputGroup" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactcomment" class="form-label"></label>
+                        <textarea class="form-control" name="text" id="contactcomment" rows="3"></textarea>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="main_comments">
+                {% for review in movie.get_review %}
+                    <div class="comments">
+                        <div class="review_img"><img src="{% static 'images/Dwayne_Johnson.jpg' %}" alt=""></div>
+                        <div class="header_name"><h5>{{ review.name }}</h5></div>
+                        <div class="comment_text"><p>{{ review.text }}</p></div>
+                        <div class="reply_arrow">
+                            <a href="#formReview" onclick="addReview('{{ review.name }}', {{ review.id }})">
+                                <i class="fas fa-reply"></i>
+                            </a>
+                        </div>
+                    </div>
+                    {% for rew in review.reviews_set.all %}
+                        <div class="comment_reply">
+                            <div class="review_img"><img src="{% static 'images/Dwayne_Johnson.jpg' %}" alt=""></div>
+                            <div class="header_name"><h5>{{ rew.name }}</h5></div>
+                            <div class="comment_text"><p>{{ rew.text }}</p></div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+    function addReview(name, id) {
+        document.getElementById("contactparent").value = id;
+        document.getElementById("contactcomment").innerText = `${name}, `
+    }
+    </script>
+
+{% endblock content %}
